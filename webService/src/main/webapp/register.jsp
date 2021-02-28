@@ -37,7 +37,7 @@
 <div class="container1280 box1"><span>sign up</span></div>
 
 <div class="container1280 form boxCenter">
-    <form class="boxFrom" action="${pageContext.request.contextPath}/SignUp">
+    <form method="post" class="boxFrom" action="${pageContext.request.contextPath}/signup">
         <span>first name</span>
         <br>
         <label for="fn"></label><input type="text" name="firstname" id="fn">
@@ -61,6 +61,11 @@
         <input class="subBox" type="submit" value="submit">
 
     </form>
+    <div>
+        <form action="${pageContext.request.contextPath}/signup" method="get">
+            <input type="submit" value="get page">
+        </form>
+    </div>
 
 </div>
 </body>
