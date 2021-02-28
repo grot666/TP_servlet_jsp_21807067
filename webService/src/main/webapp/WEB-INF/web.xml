@@ -7,6 +7,15 @@
         <servlet-name>ServletSignUp</servlet-name>
         <servlet-class>tdgr1.meng3.webService.ServletSignUp</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ServletInit</servlet-name>
+        <servlet-class>tdgr1.meng3.webService.ServletInit</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ServletInit</servlet-name>
+        <url-pattern>/init</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ServletSignUp</servlet-name>
         <url-pattern>/signup</url-pattern>

@@ -8,16 +8,9 @@ import java.io.PrintWriter;
 public class ServletSignUp extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        // same from the tp .just like they say "Stop Trying to Reinvent the Wheel”
         PrintWriter out = resp.getWriter();
-        /*
-         * The HTTP method used when the form will be submitted is POST.
-         * The form's attribute "action" may be used to set the path to which
-         * the form will be submitted, like action="/auth/login". If action is
-         * empty or not given (as here), the default behaviour is to submit the
-         * form to the current path. So in this example, the same path will be
-         * used, that means the same servlet will be called, but that's the
-         * method doPost() that will respond.
-         */
+        // get the output flux to show front pages
         out.println("<!DOCTYPE html><html><body>");
         out.println("  <form method=\"POST\">");
         out.println("    <label>username:<input type=\"text\" name=\"username\" required=\"true\" /></label><br />");
@@ -27,6 +20,7 @@ public class ServletSignUp extends HttpServlet {
         out.println("    <input type=\"submit\" value=\"signup\" />");
         out.println("  </form>");
         out.println("</body></html>");
+
     }
 
     @Override
@@ -34,12 +28,55 @@ public class ServletSignUp extends HttpServlet {
         System.out.println("post once");
 
         PrintWriter out = resp.getWriter();
-        String username = req.getParameter("username");
+        String userName = req.getParameter("username");
+        String firstName = req.getParameter("firstname");
+        String lastName = req.getParameter("lastname");
+        String passWard = req.getParameter("password");
+        user theUser = new user(userName,firstName,lastName,passWard);
+        String allInfo = theUser.getAll();
+
+        // test for redirection
+
+        if (firstName.equals(userName)){
+            resp.sendRedirect("register.jsp");
+        }
+        //start the real part
+        //i got 2 ideas here
+        //following is the first idea.
+        //first of all get a servletContext object
+        ServletContext servletContext = this.getServletContext();
+
+        servletContext.setAttribute("username",userName);
+        servletContext.setAttribute("lastname",lastName);
+        servletContext.setAttribute("firstname",firstName);
+        servletContext.setAttribute("password",passWard);
+
+
+        //front out put
         out.println("<!DOCTYPE html><html><body>");
         out.println("  <form method=\"POST\">");
         out.println("<span>");
-        out.println(username);
+        out.println(userName+":"+passWard);
+        out.print(allInfo);
         out.println("</span>");
         out.println("</body></html>");
+    }
+}
+//i am thinking about stock info by using a class,well i don t know
+class user{
+    String userName;
+    String firstName;
+    String lastName;
+    String passWard;
+    //i know they should be private here ,but i just dont
+    user(String username,String firstname,String lastname,String passward){
+        this.firstName = firstname;
+        this.lastName = lastname;
+        this.userName = username;
+        this.passWard = passward;
+    }
+    //test of my conception . it may work
+    public String getAll() {
+        return "un :" + userName+" fn :"+firstName+" ln :"+lastName+" ps :"+passWard;
     }
 }

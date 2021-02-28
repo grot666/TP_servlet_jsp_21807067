@@ -40,22 +40,22 @@
     <form method="post" class="boxFrom" action="${pageContext.request.contextPath}/signup">
         <span>first name</span>
         <br>
-        <label for="fn"></label><input type="text" name="firstname" id="fn">
+        <label for="fn"></label><input required="true" type="text" name="firstname" id="fn">
         <br>
         <span>last name</span>
         <br>
         <label>
-            <input type="text" name="lastname">
+            <input type="text" name="lastname" required="true">
         </label>
         <br>
         <span>username</span>
         <br>
-        <label for="un"></label><input type="text" name="username" id="un">
+        <label for="un"></label><input type="text" name="username" required="true" id="un">
         <br>
         <span>password</span>
         <br>
         <label>
-            <input type="password" name="password">
+            <input type="password" name="password" required="true">
         </label>
         <br>
         <input class="subBox" type="submit" value="submit">
