@@ -4,6 +4,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 
 public class ServletSignUp extends HttpServlet {
     @Override
@@ -45,12 +46,25 @@ public class ServletSignUp extends HttpServlet {
         //following is the first idea.
         //first of all get a servletContext object
         ServletContext servletContext = this.getServletContext();
+        //than check the username
+        //to do that we need a list of users first
+        List<user> userList = (List<user>) this.getServletContext().getAttribute("list");
+        //than check
+        for (user u :
+                userList) {
+            if (u.userName.equals(userName))
+            {
+                //if already exist than reDir to register.jsp
+                req.getRequestDispatcher("register.jsp");
+                return;
 
-        servletContext.setAttribute("username",userName);
-        servletContext.setAttribute("lastname",lastName);
-        servletContext.setAttribute("firstname",firstName);
-        servletContext.setAttribute("password",passWard);
-
+            }
+        }
+        //add the user to context
+        userList.add(theUser);
+        this.getServletContext().setAttribute("list",userList);
+        //after signed up jump to
+       resp.sendRedirect("index.jsp");
 
         //front out put
         out.println("<!DOCTYPE html><html><body>");
