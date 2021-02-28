@@ -19,8 +19,8 @@
         }
         .boxCenter{
             display: flex;
-            justify-content: center;//实现水平居中
-            align-items: center;//实现垂直居中
+            justify-content: center;//d
+            align-items: center;//v
         }
         .boxFrom{
             width: 200px;
@@ -35,8 +35,11 @@
 <body>
 
 <div class="container1280 box1"><span>sign up</span></div>
-
+<div>${code}</div>
+<div>${msg}</div>
 <div class="container1280 form boxCenter">
+
+    <br>
     <form method="post" class="boxFrom" action="${pageContext.request.contextPath}/signup">
         <span>first name</span>
         <br>

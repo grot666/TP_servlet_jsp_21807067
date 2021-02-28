@@ -13,5 +13,7 @@
 <a href="register.jsp">Sign Up</a>
 <br>
 <a href="list.jsp">list</a>
+<br>
+<a href="login.jsp">login</a>
 </body>
 </html>

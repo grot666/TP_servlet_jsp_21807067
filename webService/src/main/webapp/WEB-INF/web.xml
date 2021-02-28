@@ -12,6 +12,22 @@
         <servlet-class>tdgr1.meng3.webService.ServletInit</servlet-class>
         <load-on-startup>1</load-on-startup>
     </servlet>
+    <servlet>
+        <servlet-name>ServletDeleteAccount</servlet-name>
+        <servlet-class>tdgr1.meng3.webService.ServletDeleteAccount</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ServletLogin</servlet-name>
+        <servlet-class>tdgr1.meng3.webService.ServletLogin</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ServletLogin</servlet-name>
+        <url-pattern>/login</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletDeleteAccount</servlet-name>
+        <url-pattern>/deleteaccount</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ServletInit</servlet-name>
         <url-pattern>/init</url-pattern>

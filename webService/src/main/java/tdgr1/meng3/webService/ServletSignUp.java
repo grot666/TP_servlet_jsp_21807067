@@ -38,9 +38,10 @@ public class ServletSignUp extends HttpServlet {
 
         // test for redirection
 
-        if (firstName.equals(userName)){
-            resp.sendRedirect("register.jsp");
-        }
+//        if (firstName.equals(userName)){
+//            resp.sendRedirect("register.jsp");
+//        }
+// ----------------------------------------------------------------------
         //start the real part
         //i got 2 ideas here
         //following is the first idea.
@@ -55,8 +56,10 @@ public class ServletSignUp extends HttpServlet {
             if (u.userName.equals(userName))
             {
                 //if already exist than reDir to register.jsp
-                //req.getRequestDispatcher("register.jsp");
-                resp.sendRedirect("register.jsp");
+                req.setAttribute("code","error");
+                req.setAttribute("msg","username already exist");
+                req.getRequestDispatcher("register.jsp").forward(req,resp);
+                //resp.sendRedirect("register.jsp");
                 return;
 
             }
@@ -65,7 +68,11 @@ public class ServletSignUp extends HttpServlet {
         userList.add(theUser);
         this.getServletContext().setAttribute("list",userList);
         //after signed up jump to
-       resp.sendRedirect("index.jsp");
+//       resp.sendRedirect("index.jsp");
+       // than auto login
+        req.getSession().setAttribute("username",theUser.userName);
+        resp.sendRedirect("login.jsp");
+
 
         //front out put
         out.println("<!DOCTYPE html><html><body>");

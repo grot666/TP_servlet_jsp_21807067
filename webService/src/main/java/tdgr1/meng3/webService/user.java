@@ -23,11 +23,11 @@ public class user {
 
     @Override
     public String toString() {
-        return "user{" +
+        return "userinfo{" +
                 "userName='" + userName + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", passWord='" + passWord + '\'' +
+                ", passWord='" + "that is a secret" + '\'' +
                 '}';
     }
 }
