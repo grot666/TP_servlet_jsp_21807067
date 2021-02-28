@@ -46,7 +46,7 @@ public class ServletSignUp extends HttpServlet {
         //i got 2 ideas here
         //following is the first idea.
         //first of all get a servletContext object
-        ServletContext servletContext = this.getServletContext();
+        this.getServletContext();
         //than check the username
         //to do that we need a list of users first
         List<user> userList = (List<user>) this.getServletContext().getAttribute("list");
@@ -74,7 +74,7 @@ public class ServletSignUp extends HttpServlet {
         resp.sendRedirect("login.jsp");
 
 
-        //front out put
+        //front out put just in case
         out.println("<!DOCTYPE html><html><body>");
         out.println("  <form method=\"POST\">");
         out.println("<span>");

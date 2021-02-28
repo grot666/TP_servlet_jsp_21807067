@@ -22,7 +22,7 @@
         <tr>
             <td colspan="2">
                 <div class="btn-red">
-                    <input type="submit" value="login" id="login-btn">
+                    <input type="submit" value="login">
                 </div>
             </td>
         </tr>

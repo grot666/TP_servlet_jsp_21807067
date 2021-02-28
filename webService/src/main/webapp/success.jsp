@@ -23,7 +23,7 @@
 <%
 }else{
 %>
-<!--directly get post success.jsp-->
+<!--if someone directly get or post success.jsp-->
 <div class="login">
     <div class="header">
         <h1>well ,i trust you ,so ,please dont make this tough<a href="login.jsp">please login</a>!</h1>

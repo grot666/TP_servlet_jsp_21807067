@@ -24,6 +24,7 @@ public class ServletLogin extends HttpServlet {
                     //password corrected
 
                     //goto success.jsp set a session for welcome XXX
+                    request.getSession().setAttribute("username",user);
                     request.getSession().setAttribute("user",user.firstName +"."+user.lastName);
                     response.sendRedirect("success.jsp");
                     return;

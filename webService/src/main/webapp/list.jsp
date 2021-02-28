@@ -17,7 +17,16 @@
     <title>list of all users info</title>
 </head>
 <body>
+<% if(session.getAttribute("user")!= null) { %>
+<%--not username it should be userobject--%>
+<%=session.getAttribute("username")%>
+<form action="deleteaccount" method="post">
+    <input type="hidden" value="<%=session.getAttribute("username")%>" name="username">
+    <input type="submit" value="delete">
+</form>
 
+
+<% }%>
 <p>list of all users info</p>
 <table border="1">
     <% ServletContext servletContext = request.getServletContext();
