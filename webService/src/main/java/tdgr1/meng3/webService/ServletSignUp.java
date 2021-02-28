@@ -32,8 +32,8 @@ public class ServletSignUp extends HttpServlet {
         String userName = req.getParameter("username");
         String firstName = req.getParameter("firstname");
         String lastName = req.getParameter("lastname");
-        String passWard = req.getParameter("password");
-        user theUser = new user(userName,firstName,lastName,passWard);
+        String passWord = req.getParameter("password");
+        user theUser = new user(userName,firstName,lastName,passWord);
         String allInfo = theUser.getAll();
 
         // test for redirection
@@ -55,7 +55,8 @@ public class ServletSignUp extends HttpServlet {
             if (u.userName.equals(userName))
             {
                 //if already exist than reDir to register.jsp
-                req.getRequestDispatcher("register.jsp");
+                //req.getRequestDispatcher("register.jsp");
+                resp.sendRedirect("register.jsp");
                 return;
 
             }
@@ -70,7 +71,7 @@ public class ServletSignUp extends HttpServlet {
         out.println("<!DOCTYPE html><html><body>");
         out.println("  <form method=\"POST\">");
         out.println("<span>");
-        out.println(userName+":"+passWard);
+        out.println(userName+":"+passWord);
         out.print(allInfo);
         out.println("</span>");
         out.println("</body></html>");
@@ -81,16 +82,16 @@ class user{
     String userName;
     String firstName;
     String lastName;
-    String passWard;
+    String passWord;
     //i know they should be private here ,but i just dont
-    user(String username,String firstname,String lastname,String passward){
+    user(String username,String firstname,String lastname,String password){
         this.firstName = firstname;
         this.lastName = lastname;
         this.userName = username;
-        this.passWard = passward;
+        this.passWord = password;
     }
     //test of my conception . it may work
     public String getAll() {
-        return "un :" + userName+" fn :"+firstName+" ln :"+lastName+" ps :"+passWard;
+        return "un :" + userName+" fn :"+firstName+" ln :"+lastName+" ps :"+passWord;
     }
 }
