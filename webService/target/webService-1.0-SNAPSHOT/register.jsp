@@ -10,24 +10,29 @@
 <head>
     <title>Sign Up</title>
     <style>
-<%--        set css style here--%>
-        .container1280{
+        <%--        set css style here--%>
+        .container1280 {
             width: 1280px
         }
-        span{
+
+        span {
             font-size: 30px;
         }
-        .boxCenter{
+
+        .boxCenter {
             display: flex;
-            justify-content: center;//d
-            align-items: center;//v
+            justify-content: center;
+        / / d align-items: center;
+        / / v
         }
-        .boxFrom{
+
+        .boxFrom {
             width: 200px;
             height: 100px;
 
         }
-        .box1{
+
+        .box1 {
 
         }
     </style>

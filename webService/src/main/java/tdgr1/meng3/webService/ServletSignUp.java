@@ -1,7 +1,9 @@
 package tdgr1.meng3.webService;
 
-import javax.servlet.*;
-import javax.servlet.http.*;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
@@ -33,7 +35,7 @@ public class ServletSignUp extends HttpServlet {
         String firstName = req.getParameter("firstname");
         String lastName = req.getParameter("lastname");
         String passWord = req.getParameter("password");
-        user theUser = new user(userName,firstName,lastName,passWord);
+        user theUser = new user(userName, firstName, lastName, passWord);
         String allInfo = theUser.getAll();
 
         // test for redirection
@@ -53,12 +55,11 @@ public class ServletSignUp extends HttpServlet {
         //than check
         for (user u :
                 userList) {
-            if (u.userName.equals(userName))
-            {
+            if (u.userName.equals(userName)) {
                 //if already exist than reDir to register.jsp
-                req.setAttribute("code","error");
-                req.setAttribute("msg","username already exist");
-                req.getRequestDispatcher("register.jsp").forward(req,resp);
+                req.setAttribute("code", "error");
+                req.setAttribute("msg", "username already exist");
+                req.getRequestDispatcher("register.jsp").forward(req, resp);
                 //resp.sendRedirect("register.jsp");
                 return;
 
@@ -66,11 +67,11 @@ public class ServletSignUp extends HttpServlet {
         }
         //add the user to context
         userList.add(theUser);
-        this.getServletContext().setAttribute("list",userList);
+        this.getServletContext().setAttribute("list", userList);
         //after signed up jump to
 //       resp.sendRedirect("index.jsp");
-       // than auto login
-        req.getSession().setAttribute("username",theUser.userName);
+        // than auto login
+        req.getSession().setAttribute("username", theUser.userName);
         resp.sendRedirect("login.jsp");
 
 
@@ -78,7 +79,7 @@ public class ServletSignUp extends HttpServlet {
         out.println("<!DOCTYPE html><html><body>");
         out.println("  <form method=\"POST\">");
         out.println("<span>");
-        out.println(userName+":"+passWord);
+        out.println(userName + ":" + passWord);
         out.print(allInfo);
         out.println("</span>");
         out.println("</body></html>");

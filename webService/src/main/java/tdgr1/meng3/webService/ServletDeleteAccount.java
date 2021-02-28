@@ -1,7 +1,10 @@
 package tdgr1.meng3.webService;
 
-import javax.servlet.*;
-import javax.servlet.http.*;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.Iterator;
 import java.util.List;
@@ -16,13 +19,13 @@ public class ServletDeleteAccount extends HttpServlet {
         List<user> userList = (List<user>) this.getServletContext().getAttribute("list");
         //then look up
         Iterator iterator = userList.listIterator();
-        while (iterator.hasNext()){
+        while (iterator.hasNext()) {
             String userObject = iterator.next().toString();
-            if (userObject.equals(userTarget)){
+            if (userObject.equals(userTarget)) {
                 iterator.remove();
                 HttpSession session = request.getSession();
                 session.invalidate();
-                request.getRequestDispatcher("register.jsp").forward(request,response);
+                request.getRequestDispatcher("register.jsp").forward(request, response);
             }
         }
 
