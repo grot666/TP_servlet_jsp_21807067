@@ -28,8 +28,8 @@ for windows users,make sure you have WSL2.
 ## TODO List
 ***
 
--[ ] deploy on AWS  
--[ ] deploy by using docker  
+-[] deploy on AWS  
+-[] deploy by using docker  
 
 
 
