@@ -22,7 +22,9 @@ Maven
 ***
 for windows users,make sure you have WSL2.  
 
-    # docker pull meng3/tomcat:1.0.0
+    # docker pull meng2/tomcat-tp-jsp-servlet
+    
+than localhost/[port]/webService-1.0-SNAPSHOT/
     
 
 ## TODO List
