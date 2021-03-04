@@ -29,7 +29,7 @@ for windows users,make sure you have WSL2.
 ***
 
 -[] deploy on AWS  
--[] deploy by using docker  
+-[X] deploy by using docker  
 
 
 
